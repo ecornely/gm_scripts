@@ -10,6 +10,9 @@
 // @run-at          document-end
 // ==/UserScript==
 
+if (window.top !== window.self) // NOTE: Do not run on iframes
+    return;
+
 closureCode=null;
 solution=null;
 evt = null;
