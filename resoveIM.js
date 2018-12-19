@@ -7,6 +7,8 @@
 // @namespace       contact@ecornely.be
 // @homepageURL     https://blog.ecornely.be
 // @include         http://itsm.nrb.be/webtier-9.35/*
+// @include         http://hpsm.nrb.be/webtier-9.35/*
+// @include         http://nrbnrw0237.nrb.be:8080/webtier-9.35/*
 // @run-at          document-end
 // ==/UserScript==
 
@@ -16,6 +18,25 @@ if (window.top !== window.self) // NOTE: Do not run on iframes
 closureCode=null;
 solution=null;
 evt = null;
+
+function resolveChangeTask(){
+  if(confirm("Are you sure there is no action to perform ?")){
+    document.querySelector("iframe").contentDocument.querySelector("textarea[name='instance/close/closing.comments/closing.comments']").value="Nothing to do for automation team";
+    console.log("Closing comment set, wait before resolve...");
+    setTimeout(resolveThanCancel, 1000);
+  }
+}
+function resolveThanCancel(){
+  Array.from(document.querySelectorAll("button.x-btn-text")).filter(function(b){ return b.innerText=="Resolve"})[0].click();
+  console.log("Resolve clicked, waiting before cancel...");
+  //TODO append a waiting gif/css
+  setTimeout(cancel, 5000);
+}
+
+function cancel(){
+  Array.from(document.querySelectorAll("button.x-btn-text")).filter(function(b){ return b.innerText=="Cancel"})[0].click();
+  console.log("Cancel clicked.");
+}
 
 function resolveIM(){
   closureCode=null;
@@ -107,9 +128,15 @@ function checkOxygen(){
 
 if(document.getElementById("resolveIMBtn")==null){
   btn = document.createElement("button");
-  btn.textContent="resolveIM";
+  btn.textContent="resolve IM";
   btn.setAttribute("style", "position:absolute;top:5px;right:200px;z-index:999");
   btn.setAttribute("id", "resolveIMBtn");
   btn.onclick=resolveIM;
+  document.body.appendChild(btn);
+  btn = document.createElement("button");
+  btn.textContent="resolve ChangeTask";
+  btn.setAttribute("style", "position:absolute;top:5px;right:285px;z-index:999");
+  btn.setAttribute("id", "resolveCTBtn");
+  btn.onclick=resolveChangeTask;
   document.body.appendChild(btn);
 }
