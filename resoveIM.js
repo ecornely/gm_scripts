@@ -129,13 +129,13 @@ function checkOxygen(){
 if(document.getElementById("resolveIMBtn")==null){
   btn = document.createElement("button");
   btn.textContent="resolve IM";
-  btn.setAttribute("style", "position:absolute;top:5px;right:200px;z-index:999");
+  btn.setAttribute("style", "position:absolute;top:15px;right:270px;z-index:999");
   btn.setAttribute("id", "resolveIMBtn");
   btn.onclick=resolveIM;
   document.body.appendChild(btn);
   btn = document.createElement("button");
   btn.textContent="resolve ChangeTask";
-  btn.setAttribute("style", "position:absolute;top:5px;right:285px;z-index:999");
+  btn.setAttribute("style", "position:absolute;top:15px;right:350px;z-index:999");
   btn.setAttribute("id", "resolveCTBtn");
   btn.onclick=resolveChangeTask;
   document.body.appendChild(btn);
