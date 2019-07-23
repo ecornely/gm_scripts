@@ -6,9 +6,9 @@
 // @author          corne
 // @namespace       contact@ecornely.be
 // @homepageURL     https://blog.ecornely.be
-// @include         http://itsm.nrb.be/webtier-9.35/*
-// @include         http://hpsm.nrb.be/webtier-9.35/*
-// @include         http://nrbnrw0237.nrb.be:8080/webtier-9.35/*
+// @include         http://itsm.nrb.be/webtier-9.61/*
+// @include         http://hpsm.nrb.be/webtier-9.61/*
+// @include         http://nrbnrw0237.nrb.be:8080/webtier-9.61/*
 // @run-at          document-end
 // ==/UserScript==
 
