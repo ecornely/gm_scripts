@@ -6,15 +6,20 @@
 // @namespace       contact@ecornely.be
 // @homepageURL     https://blog.ecornely.be
 // @supportURL      https://github.com/ecornely/gmscripts
-// @include         http://amazon.de/*
-// @include         http://www.amazon.de/*
-// @include         https://amazon.de/*
-// @include         https://www.amazon.de/*
+// @match         http://amazon.de/*
+// @match         http://www.amazon.de/*
+// @match         https://amazon.de/*
+// @match         https://www.amazon.de/*
 // @run-at          document-start
 // @version         0.0.1
 // ==/UserScript==
 
-if (window.top !== window.self) // NOTE: Do not run on iframes
-    return;
+(function() {
+  'use strict';
 
-window.location='https://smile.amazon.de'+window.location.pathname+window.location.search
+  if(window.top !== window.self){ // NOTE: Do not run on iframes
+      return;
+  }
+
+  window.location='https://smile.amazon.de'+window.location.pathname+window.location.search
+})();
